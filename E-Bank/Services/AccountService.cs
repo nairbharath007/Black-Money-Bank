@@ -34,7 +34,12 @@ namespace E_Bank.Services
         //    return records;
         //}
 
+        public PageList<TransactionClass> GetAllAccount(PageParameters pageparameters)
+        {
 
+            var records = _transactionClassRepository.Get().Where(tr => tr.IsActive).ToList();
+            return PageList<TransactionClass>.ToPagedList(records, pageparameters.PageNumber, pageparameters.PageSize);
+        }
 
 
         public List<Account> GetAll()

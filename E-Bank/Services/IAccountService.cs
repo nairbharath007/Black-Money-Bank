@@ -25,6 +25,7 @@ namespace E_Bank.Services
         public int UpdateInterest(AccountIntrestUpdateDto accountIntrestUpdateDto);//update account intrest
 
         public List<Account> FindAccountId(int id);//customerId fetch account id
+        public PageList<TransactionClass> GetAllAccount(PageParameters pageparameters);
 
         //public PageList<TransactionClass> GetAllAccount(PageParameters pageparameters);//pagination
         //public List<TransactionClass> GetAllAccountsName();

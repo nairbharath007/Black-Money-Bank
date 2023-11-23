@@ -191,26 +191,27 @@ namespace E_Bank.Controllers
 
 
 
-        //[HttpGet("pagination")]
-        //public IActionResult GetAllAccount([FromBody] PageParameters pageParameters)
-        //{
-        //    var banks = _accountService.GetAllAccount(pageParameters);
+        [HttpGet("pagination")]
+        public IActionResult GetAllAccount([FromQuery] PageParameters pageParameters)
+        {
 
-        //    var metaData = new
-        //    {
-        //        banks.TotalCount,
-        //        banks.PageSize,
-        //        banks.CurrentPage,
-        //        // banks.TotalPages,
-        //        banks.HasNext,
-        //        banks.HasPrevious,
+            var banks = _accountService.GetAllAccount(pageParameters);
 
-        //    };
+            var metaData = new
+            {
+                banks.TotalCount,
+                banks.PageSize,
+                banks.CurrentPage,
+                // banks.TotalPages,
+                banks.HasNext,
+                banks.HasPrevious,
 
-        //    Response.Headers.Add("x-Pagination", JsonConvert.SerializeObject(metaData));
-        //    var result = banks;
-        //    return Ok(result);
-        //}
+            };
+
+            Response.Headers.Add("x-Pagination", JsonConvert.SerializeObject(metaData));
+            var result = banks;
+            return Ok(result);
+        }
 
 
         //customer id passed and matched account find
